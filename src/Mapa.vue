@@ -43,7 +43,7 @@
   }
 
   function changeZoom() {
-    $script.ready('gmp', ()=> {
+    $script.ready('gmp', function() {
         map.setZoom(this.zoom)
     })
 }
