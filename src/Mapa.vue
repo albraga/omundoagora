@@ -1,7 +1,7 @@
 <template>
   <div id="mapa">
     <div id="map_entry_point"></div>
-      <input type="number" v-model="zoom">         
+      <input ref="input" type="number" v-bind:value="zoomprop" v-on:change="changeZoom($event.target.value)" v-model="zoom">         
       <button @click="addDisasters">Desastres</button>
       {{ this.initMap() }}
   </div>
@@ -17,18 +17,22 @@
   earthquakesLoader.loadEarthquakes()
   
   let map 
-
+  let data = {zoom: 2}
   export default {
     name: 'mapa',
     data: {
       zoom: 2
     },
+    props: {
+      zoomprop: {
+        type: Number,
+        default: 2
+      }
+    },
     methods: {
       initMap: init,
-      addDisasters: addDisasters
-    },
-    watch: {
-      zoom: changeZoom
+      addDisasters: addDisasters,
+      changeZoom: changeZoom
     }
   }
 
@@ -38,13 +42,15 @@
       zoom: 2
     })
   }
+
   function init() {
     $script('https://maps.googleapis.com/maps/api/js?key=AIzaSyDRugSnW6uPDAmw9R2_yBoSqOx87A8eGL8', 'gmp', cbMap)
   }
 
-  function changeZoom() {
-    $script.ready('gmp', function() {
-        map.setZoom(this.zoom)
+  function changeZoom(zoomprop) {
+    this.$emit('input', zoomprop)
+    $script.ready('gmp', ()=> {
+      map.setZoom(parseInt(this.$refs.input.value))
     })
 }
 
