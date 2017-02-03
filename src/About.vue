@@ -1,13 +1,12 @@
 <template>
-<div id="tapp">
-  <img src="./assets/logo.png">
-  <h1>aqui é  app.vue {{$t("message.author")}}</h1>
+<div id="about">
+  {{ msg }}
 </div>
 </template>
 
 <script>
 export default {
-  name: 'tapp',
+  name: 'about',
   data () {
     return {
       msg: 'Welcome to Your Vue.js'
@@ -17,7 +16,7 @@ export default {
 </script>
 
 <style>
-#tapp {
+#about {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

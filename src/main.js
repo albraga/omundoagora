@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import vueI18n from 'vue-i18n'
 import pt from './pt'
 import en from './en'
-import App from './App.vue'
+import About from './About.vue'
 import Mapa from './Mapa.vue'
 
 Vue.use(VueRouter)
@@ -20,8 +20,8 @@ Object.keys(locales).forEach(function (lang) {
 
 const routes = [
 	{
-		path: '/',
-		component: App
+		path: '/about',
+		component: About
 	},
 	{
 		path: '/mapa',
