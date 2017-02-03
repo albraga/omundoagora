@@ -1,8 +1,8 @@
 <template>
   <div id="mapa">
     <div id="map_entry_point"></div>
-      <input ref="input" type="number" v-bind:value="zoomprop" v-on:change="changeZoom($event.target.value)" v-model="zoom">         
-      <button @click="addDisasters">Desastres</button>
+      <input ref="input" type="number" v-bind:value="zoomprop" v-on:change="changeZoom($event.target.value)">         
+      <button @click="addDisasters">{{ bname }}</button>
       {{ initMap() }}
   </div>
 </template>
@@ -22,7 +22,7 @@
     name: 'mapa',
     data: function() {
       return {
-        zoom: 2
+        bname: 'Desastres'
       }
     },
     props: {
