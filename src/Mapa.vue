@@ -18,7 +18,7 @@
   
   let map 
 
-  export default {
+  let vmap = {
     name: 'mapa',
     data: function() {
       return {
@@ -79,7 +79,7 @@ function addDisasters() {
 }
 
 
-  
+export default vmap
 </script>
 
 <style>
