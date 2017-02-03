@@ -17,11 +17,13 @@
   earthquakesLoader.loadEarthquakes()
   
   let map 
-  let data = {zoom: 2}
+
   export default {
     name: 'mapa',
-    data: {
-      zoom: 2
+    data: function() {
+      return {
+        zoom: 2
+      }
     },
     props: {
       zoomprop: {
