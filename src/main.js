@@ -4,7 +4,7 @@ import vueI18n from 'vue-i18n'
 import pt from './pt'
 import en from './en'
 import App from './App.vue'
-import Mapa from './mapa.vue'
+import Mapa from './Mapa.vue'
 
 Vue.use(VueRouter)
 
