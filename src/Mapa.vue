@@ -3,7 +3,6 @@
     <div id="map_entry_point"></div>
       <input ref="input" type="number" v-bind:value="zoomprop" v-on:change="changeZoom($event.target.value)">         
       <button @click="addDisasters">{{ bname }}</button>
-      {{ initMap() }}
   </div>
 </template>
 
@@ -35,6 +34,9 @@
       initMap: init,
       addDisasters: addDisasters,
       changeZoom: changeZoom
+    },
+    mounted: function() {
+      this.initMap()
     }
   }
 
