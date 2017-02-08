@@ -20,11 +20,11 @@ export default class Country {
         }
     }
     getGeoJSON() {
-        return `../static/data/${this.iso3}.geo.json`
+        return `data/${this.iso3}.geo.json`
     }
     getFlag() {
         return {
-            url: `../static/data/${this.iso3}.svg`,
+            url: `data/${this.iso3}.svg`,
             size: {width: this.flagWidth, height: this.flagHeight},
             scaledSize: {width: this.flagWidth/20, height: this.flagHeight/20},
             labelOrigin: {x: 0, y: 0},

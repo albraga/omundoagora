@@ -9,7 +9,7 @@ case $argument in
         docs)
                 rm -Rf docs
                 mkdir docs && cd docs
-                cp -Rfv ../index.html ../dist ../static .
+                cp -Rfv ../index.html ../dist ../data .
         ;;
         eslint)
                 ./node_modules/.bin/eslint $1; exit 0
