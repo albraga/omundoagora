@@ -1,3 +1,5 @@
+import disasterLoader from './disaster-loader'
+import earthquakesLoader from './earthquakers-loader'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import vueI18n from 'vue-i18n'
@@ -5,6 +7,10 @@ import pt from './pt'
 import en from './en'
 import About from './About.vue'
 import Mapa from './Mapa.vue'
+
+sessionStorage.clear()
+disasterLoader.load()
+earthquakesLoader.loadEarthquakes()
 
 Vue.use(VueRouter)
 

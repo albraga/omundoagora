@@ -8,16 +8,9 @@
 
 <script>
   import $script from 'scriptjs'
-  import disastersApiLoader from './disasters-api-loader'
-  import earthquakesLoader from './earthquakers-loader'
-  import disastersTranslated from './disasters-translated'
+  import Disaster from './disaster'
 
-  disastersApiLoader.loadDisasters()
-  earthquakesLoader.loadEarthquakes()
-  
-  let map 
-
-  let vmap = {
+  export default {
     name: 'mapa',
     data: function() {
       return {
@@ -40,6 +33,7 @@
     }
   }
 
+   let map 
    function cbMap() {
     map = new google.maps.Map(document.getElementById('map_entry_point'), {
       center: {lat: 28.304381, lng: 10.195313},
@@ -74,14 +68,13 @@ function addMarkerAndGeoJSONandInfoWindow(disaster) {
 }
 
 function addDisasters() {
-    let disasters = disastersTranslated.getDisasters()
-    for(let disaster of disasters) {
+    let disasters = []
+    for(let y = 0; y < sessionStorage.length; y++) {
+        disasters.push(JSON.parse(sessionStorage.getItem(y)))
+        let disaster = new Disaster(disasters[y].iso3, disasters[y].name, parseFloat(disasters[y].lat), parseFloat(disasters[y].lng),disasters[y].nameTitle, disasters[y].description)
         addMarkerAndGeoJSONandInfoWindow(disaster)
     }
 }
-
-
-export default vmap
 </script>
 
 <style>
