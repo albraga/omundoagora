@@ -33,7 +33,8 @@ function translateAjax(disaster, z) {
         disaster.description = response.text[0]
         sessionStorage.setItem(z, JSON.stringify(disaster))
     }).catch(function (response, xhr) {
-        
+        disaster.description = '<p><b>Não foi possível traduzir</b>:</p>' + disaster.description
+        sessionStorage.setItem(z, JSON.stringify(disaster))
     })
 }
 
