@@ -7,9 +7,13 @@ case $argument in
                 webpack
         ;;
         docs)
-                rm -Rf docs
-                mkdir docs && cd docs
-                cp -Rfv ../index.html ../dist ../data .
+                mv -v docs _docs
+                mkdir -v docs
+                mkdir -v docs/docs
+                mv -v _docs/data/ docs/docs/
+                rm -vrf _docs
+                cp -v index.html docs
+                mv dist docs/
         ;;
         eslint)
                 ./node_modules/.bin/eslint $1; exit 0
