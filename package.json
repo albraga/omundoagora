@@ -5,9 +5,11 @@
   "author": "Alexandre Braga <albraga@email.com>",
   "private": true,
   "scripts": {
-    "dev": "npm run build && cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
-    "devonly": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "bdev": "npm run build && cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
+    "build": "npm run check_staticdata && cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "check_staticdata": "bash tasks.sh staticdata_from_docs_2_root",
+    "docs": "bash tasks.sh assemble_docs_2_githubpages"
   },
   "dependencies": {
     "@fdaciuk/ajax": "^2.1.2",
